@@ -46,6 +46,10 @@
       Promise: { is: "'use strict'; return ('Promise' in global);"},
       Reflect: { is: "'use strict'; return ('Reflect' in global);" },
       MSE: { is: "'use strict'; return ('MediaSource' in global);" },
+      MediaSource: { is: "'use strict'; return typeof MediaSource.isTypeSupported === 'function'" },
+      isTypeSupported: { is: "'use strict'; return MediaSource.isTypeSupported('video/mp4; codecs=\"avc1.42E01E,mp4a.40.2\"')" },
+      appendBuffer: { is: "'use strict'; return typeof SourceBuffer.prototype.appendBuffer === 'function'" },
+      removeBuffer: { is: "'use strict'; return typeof SourceBuffer.prototype.remove === 'function'" },
     };
     
     module.exports = api;
@@ -120,6 +124,10 @@
       this.moduleExport = 'moduleExport';
       this.moduleImport = 'moduleImport';
       this.MSE = 'MSE';
+      this.MediaSource = 'MediaSource';
+      this.isTypeSupported = 'isTypeSupported';
+      this.appendBuffer = 'appendBuffer';
+      this.removeBuffer = 'removeBuffer';
     };
     
     module.exports = new Supports();
